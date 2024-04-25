@@ -31,7 +31,7 @@ public class Tree {
         return root;
     }
 
-    private Node search(int value){
+    public Node search(int value){
         return search(root,value);
     }
 
@@ -46,4 +46,18 @@ public class Tree {
 
         return search(root.right,value);
     }
+
+    public void preOrderTraversal(){
+        preOrderTraversal(root);
+    }
+
+    private void preOrderTraversal(Node root){
+        if (root != null){
+            System.out.println(root.value + "");
+            preOrderTraversal(root.left);
+            preOrderTraversal(root.right);
+        }
+    }
+
+
 }
