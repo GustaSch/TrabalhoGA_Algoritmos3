@@ -9,6 +9,14 @@ public class Tree {
         root.left = root.right = null;
     }
 
+    public Node getRoot() {
+        return root;
+    }
+
+    public void setRoot(Node root) {
+        this.root = root;
+    }   
+
     private Node insert(int value, Node root) {
         if (root == null) {
             root = new Node(value);
