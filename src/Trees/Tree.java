@@ -17,6 +17,9 @@ public class Tree {
         this.root = root;
     }   
 
+    public void insert(int value){
+        insert(value,root);
+    }
     private Node insert(int value, Node root) {
         if (root == null) {
             root = new Node(value);
