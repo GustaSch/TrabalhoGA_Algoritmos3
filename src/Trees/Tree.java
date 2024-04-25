@@ -23,11 +23,11 @@ public class Tree {
         if (root == null) {
             return new Node(value);
         }
-
+        //recursive case
         if (value > root.getValue()) {
-            root.setRight(insert(value, root.getRight()));
+            root.setRight(insert(value, root.getRight())); // inserting in the right subtree
         } else {
-            root.setLeft(insert(value, root.getLeft()));
+            root.setLeft(insert(value, root.getLeft())); // inserting in the left subtree
         }
 
         return root;
@@ -56,6 +56,7 @@ public class Tree {
                 root = root.getLeft();
 
             } else { //Case 3: Two children
+                // Find the minimum node in the right subtree of the node to be removed
                 Node minimum = findMin(root.getRight());
                 root.setValue(minimum.getValue());
                 root.setRight(remove(root.getRight(), minimum.getValue()));
@@ -106,7 +107,7 @@ public class Tree {
 
     private void preOrderTraversal(Node root){
         if (root != null){
-            System.out.println(root.getValue() + "");
+            System.out.print(root.getValue() + " ");
             preOrderTraversal(root.getLeft());
             preOrderTraversal(root.getRight());
         }
@@ -119,7 +120,7 @@ public class Tree {
     private void inOrderTraversal(Node root){
         if(root != null){
             inOrderTraversal(root.getLeft());
-            System.out.println(root.getValue() + "");
+            System.out.print(root.getValue() + " ");
             inOrderTraversal(root.getRight());
         }
     }
