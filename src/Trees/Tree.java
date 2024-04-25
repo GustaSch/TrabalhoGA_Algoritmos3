@@ -15,10 +15,9 @@ public class Tree {
         this.root = root;
     }
 
-    public Node insert(int value) {
-        return insert(value, root);
+    public void insert(int value){
+        insert(value,root);
     }
-
     private Node insert(int value, Node root) {
         //base case
         if (root == null) {
@@ -82,6 +81,46 @@ public class Tree {
             postOrder(root.getLeft());
             postOrder(root.getRight());
             System.out.print(root.getValue() + " ");
+        }
+    }
+
+    public Node search(int value){
+        return search(root,value);
+    }
+
+    private Node search(Node root, int value){
+        if(root == null || root.getValue() == value){
+            return root;
+        }
+
+        if(value < root.getValue()){
+            return search(root.getLeft(),value);
+        }
+
+        return search(root.getRight(),value);
+    }
+
+    public void preOrderTraversal(){
+        preOrderTraversal(root);
+    }
+
+    private void preOrderTraversal(Node root){
+        if (root != null){
+            System.out.println(root.getValue() + "");
+            preOrderTraversal(root.getLeft());
+            preOrderTraversal(root.getRight());
+        }
+    }
+
+    public void inOrderTraversal(){
+        inOrderTraversal(root);
+    }
+
+    private void inOrderTraversal(Node root){
+        if(root != null){
+            inOrderTraversal(root.getLeft());
+            System.out.println(root.getValue() + "");
+            inOrderTraversal(root.getRight());
         }
     }
 }
