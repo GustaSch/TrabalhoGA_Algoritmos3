@@ -59,5 +59,15 @@ public class Tree {
         }
     }
 
+    public void inOrderTraversal(){
+        inOrderTraversal(root);
+    }
 
+    private void inOrderTraversal(Node root){
+        if(root != null){
+            inOrderTraversal(root.left);
+            System.out.println(root.value + "");
+            inOrderTraversal(root.right);
+        }
+    }
 }
